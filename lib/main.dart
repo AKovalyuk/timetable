@@ -30,15 +30,15 @@ class _TabsAppState extends State<TabsApp> {
   @override
   Widget build(BuildContext context) {
 
-    var textStyle = TextStyle(
-      color: const Color(0xFF777777)
+    var textStyle = const TextStyle(
+      color: Color(0xFF777777)
     );
 
     return MaterialApp(
       title: 'SibFU Timetable',
       theme: ThemeData(
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: const Color(0xFFFFFFFF),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color(0xFFFFFFFF),
         ),
         textTheme: TextTheme(
           bodySmall: textStyle,

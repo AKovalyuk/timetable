@@ -14,7 +14,7 @@ class _TimetableState extends State<Timetable> {
   Widget build(BuildContext context) {
     return Stack(
         children: [
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
                 child: Column(
@@ -30,31 +30,31 @@ class _TimetableState extends State<Timetable> {
           ),
           Positioned(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding: const  EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FloatingActionButton(
                           onPressed: () {},
-                          child: Icon(Icons.search, color: Colors.grey)
+                          child: const Icon(Icons.search, color: Colors.grey)
                       ),
                       FloatingActionButton(
                           onPressed: () {
                             showGeneralDialog(
                                 context: context,
                                 pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-                                  return MapModal();
+                                  return const MapModal();
                                 });
                           },
-                          child: Icon(Icons.location_pin, color: Colors.grey)
+                          child: const Icon(Icons.location_pin, color: Colors.grey)
                       ),
                       FloatingActionButton(
                           onPressed: () {},
-                          child: Icon(Icons.add, color: Colors.grey)
+                          child: const Icon(Icons.add, color: Colors.grey)
                       ),
                       FloatingActionButton(
                           onPressed: () {},
-                          child: Icon(Icons.format_align_center, color: Colors.grey)
+                          child: const Icon(Icons.format_align_center, color: Colors.grey)
                       )
                     ]
                 ),

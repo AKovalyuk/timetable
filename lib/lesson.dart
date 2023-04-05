@@ -13,12 +13,12 @@ class _LessonState extends State<Lesson> {
   Widget build(BuildContext buildContext) {
     return Column(
       children: [
-        Divider(thickness: 2),
+        const Divider(thickness: 2),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -48,20 +48,20 @@ class _LessonState extends State<Lesson> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
-                  child: IconButton(
-                    onPressed: () {
-                      showGeneralDialog(
-                          context: buildContext,
-                          pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-                            return NoteModal();
-                          }
-                      );
-                    },
-                    icon: Icon(Icons.edit, size: 15, color: Colors.grey),
-                    splashRadius: 20,
-                  ),
                   width: 35,
                   height: 35,
+                  child: IconButton(
+                  onPressed: () {
+                    showGeneralDialog(
+                        context: buildContext,
+                        pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
+                          return const NoteModal();
+                        }
+                    );
+                  },
+                  icon: const Icon(Icons.edit, size: 15, color: Colors.grey),
+                  splashRadius: 20,
+                ),
                 )
 
               ],

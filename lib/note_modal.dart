@@ -15,11 +15,10 @@ class _NoteModalState extends State<NoteModal> {
         toolbarHeight: 0,
         toolbarOpacity: 1,
       ),
-      body: Container(
-          child: Stack(
+      body: Stack(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -27,30 +26,30 @@ class _NoteModalState extends State<NoteModal> {
                         onPressed: () {
                           Navigator.pop(buildContext);
                         },
-                        child: Icon(Icons.arrow_back, color: Colors.grey)
+                        child: const Icon(Icons.arrow_back, color: Colors.grey)
                     ),
                     FloatingActionButton(
                         onPressed: () {
                           Navigator.pop(buildContext);
                         },
-                        child: Icon(Icons.close, color: Colors.grey)
+                        child: const Icon(Icons.close, color: Colors.grey)
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 100, 30, 0),
+                padding: const EdgeInsets.fromLTRB(30, 100, 30, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Вторник, 33 февраля"),
-                    Text(''),
-                    Text("Название предмета"),
-                    Text(''),
-                    TextField(
+                    const Text("Вторник, 33 февраля"),
+                    const Text(''),
+                    const Text("Название предмета"),
+                    const Text(''),
+                    const TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: const Color(0xFF777777))
+                          borderSide: BorderSide(color: Color(0xFF777777))
                         ),
                         fillColor: Color(0xFFC9C9C9),
                         filled: true
@@ -58,25 +57,24 @@ class _NoteModalState extends State<NoteModal> {
                       minLines: 8,
                       maxLines: 8,
                     ),
-                    Text(''),
+                    const Text(''),
                     ElevatedButton(
                       onPressed: (){},
-                      child: Text(
-                        'Сохранить',
-                        style: TextStyle(
-                          color: const Color(0xFF777777)
-                        ),
-                      ),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white
                       ),
+                      child: const Text(
+                      'Сохранить',
+                      style: TextStyle(
+                          color: Color(0xFF777777)
+                      ),
+                    ),
                     )
                   ],
                 ),
               )
             ],
           )
-      ),
     );
   }
 }
