@@ -14,7 +14,7 @@ class _TimetableState extends State<Timetable> {
   Widget build(BuildContext context) {
     return Stack(
         children: [
-          const Padding(
+          Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
                 child: Column(
@@ -30,7 +30,7 @@ class _TimetableState extends State<Timetable> {
           ),
           Positioned(
               child: Padding(
-                padding: const  EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

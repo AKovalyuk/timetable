@@ -11,7 +11,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return
-      const Center(
+      Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

@@ -3,11 +3,11 @@ import 'timetable.dart';
 import 'profile.dart';
 
 void main() {
-  runApp(const TabsApp());
+  runApp(TabsApp());
 }
 
 class TabsApp extends StatefulWidget {
-  const TabsApp({super.key});
+  TabsApp({super.key});
 
   @override
   State<TabsApp> createState() => _TabsAppState();

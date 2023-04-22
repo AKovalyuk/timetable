@@ -13,12 +13,12 @@ class _LessonState extends State<Lesson> {
   Widget build(BuildContext buildContext) {
     return Column(
       children: [
-        const Divider(thickness: 2),
+        Divider(thickness: 2),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(

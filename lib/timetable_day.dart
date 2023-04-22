@@ -11,7 +11,7 @@ class TimetableDay extends StatefulWidget {
 class _TimetableDayState extends State<TimetableDay> {
   @override
   Widget build(BuildContext buildContext) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
       child: Card(
           child: Padding(
