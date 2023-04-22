@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'lesson.dart';
 
 class TimetableDay extends StatefulWidget {
-  const TimetableDay({super.key});
+  TimetableDay({super.key});
 
   @override
   State<TimetableDay> createState() => _TimetableDayState();

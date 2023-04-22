@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'note_modal.dart';
 
 class Lesson extends StatefulWidget {
-  const Lesson({super.key});
+  Lesson({super.key});
 
   @override
   State<Lesson> createState() => _LessonState();

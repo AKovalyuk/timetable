@@ -16,7 +16,7 @@ class TabsApp extends StatefulWidget {
 class _TabsAppState extends State<TabsApp> {
 
   int _currentIndex = 0;
-  static const List<Widget> _pages = <Widget>[
+  static List<Widget> _pages = <Widget>[
     Timetable(),
     Profile()
   ];
