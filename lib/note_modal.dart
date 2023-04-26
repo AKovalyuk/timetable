@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NoteModal extends StatefulWidget {
-  const NoteModal({super.key});
+  int id;
+  String lessonName;
+  NoteModal({super.key, required this.id, required this.lessonName});
 
   @override
   State<NoteModal> createState() => _NoteModalState();
 }
 
 class _NoteModalState extends State<NoteModal> {
+  String value='';
+
   @override
   Widget build(BuildContext buildContext) {
     return Scaffold(
@@ -44,22 +49,44 @@ class _NoteModalState extends State<NoteModal> {
                   children: [
                     const Text("Вторник, 33 февраля"),
                     const Text(''),
-                    const Text("Название предмета"),
+                    Text(this.widget.lessonName),
                     const Text(''),
-                    const TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF777777))
-                        ),
-                        fillColor: Color(0xFFC9C9C9),
-                        filled: true
-                      ),
-                      minLines: 8,
-                      maxLines: 8,
+                    FutureBuilder(
+                        future: SharedPreferences.getInstance(),
+                        builder: (BuildContext buildContext, AsyncSnapshot<SharedPreferences> snapshot) {
+                          if (snapshot.hasData) {
+                            String? initial = snapshot.data?.getString('notes_${snapshot.data?.getString('group')}_${widget.id}') ?? '';
+                            return TextField(
+                              controller: TextEditingController(
+                                  text: initial
+                              ),
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xFF777777))
+                                  ),
+                                  fillColor: Color(0xFFC9C9C9),
+                                  filled: true
+                              ),
+                              onChanged: (String val) {
+                                this.value = val;
+                              },
+                              minLines: 8,
+                              maxLines: 8,
+                            );
+                          }
+                          else {
+                            return Text('');
+                          }
+                        }
                     ),
                     const Text(''),
                     ElevatedButton(
-                      onPressed: (){},
+                      onPressed: () async {
+                        var prefs = await SharedPreferences.getInstance();
+                        var group = prefs.getString('group');
+                        print(this.value);
+                        prefs.setString('notes_${group}_${widget.id}', this.value);
+                      },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white
                       ),

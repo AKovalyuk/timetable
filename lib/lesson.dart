@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'note_modal.dart';
+import 'structures.dart';
 
 class Lesson extends StatefulWidget {
-  Lesson({super.key});
+  Lesson({
+    super.key,
+    required this.lessonStruct
+  });
+
+  LessonStruct lessonStruct;
 
   @override
-  State<Lesson> createState() => _LessonState();
+  State<Lesson> createState() => _LessonState(
+      lessonStruct
+  );
 }
 
 class _LessonState extends State<Lesson> {
+
+  LessonStruct lessonStruct;
+
+  _LessonState(this.lessonStruct);
+
   @override
   Widget build(BuildContext buildContext) {
     return Column(
@@ -18,32 +31,31 @@ class _LessonState extends State<Lesson> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                    children: [
-                      Text(
-                        'Название предмета   ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold
-                        ),
+            Flexible(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${this.lessonStruct.subject}   ',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold
                       ),
-                      Text(
-                        'лекция',
-                        style: TextStyle(
+                    ),
+                    Text(
+                      this.lessonStruct.type,
+                      style: TextStyle(
                           color: Colors.orange,
                           fontWeight: FontWeight.bold
-                        ),
-                      )
-                    ]
-                ),
-                Text(''),
-                Text('10:15-11:50'),
-                Text(''),
-                Text('Корпус №17, ауд. 1-17')
-              ]
+                      ),
+                    ),
+                    Text(this.lessonStruct.time),
+                    Text(this.lessonStruct.teacher),
+                    Text(this.lessonStruct.location)
+                  ]
+              ),
             ),
+
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -55,7 +67,7 @@ class _LessonState extends State<Lesson> {
                     showGeneralDialog(
                         context: buildContext,
                         pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-                          return const NoteModal();
+                          return NoteModal(id: this.lessonStruct.lessonId, lessonName: this.lessonStruct.subject);
                         }
                     );
                   },
