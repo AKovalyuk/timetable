@@ -12,19 +12,30 @@ class LessonStruct {
 }
 
 class DayStruct {
-  String title;
+  static List<String> daysNames = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота"
+  ];
+  int dayIndex, weekIndex;
   List<LessonStruct> table;
 
   DayStruct({
-    required this.title,
+    required this.dayIndex,
+    required this.weekIndex,
     required this.table
   });
 }
 
 class Week {
   List<DayStruct> days;
+  int weekIndex;
 
   Week({
+    required this.weekIndex,
     required this.days
   });
 }

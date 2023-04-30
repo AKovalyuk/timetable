@@ -6,13 +6,14 @@ import 'structures.dart';
 class Timetable extends StatefulWidget {
 
   final Week week;
-  final Function callback;
+  final Function() callback;
 
-  const Timetable({
-    super.key,
+  Timetable({
     required this.week,
     required this.callback
-  });
+  }) : super(key: ValueKey([week, callback])){
+    print('timetable constructed');
+  }
 
   @override
   State<Timetable> createState() {
@@ -39,8 +40,9 @@ class _TimetableState extends State<Timetable> {
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
                 child: Column(
-                  children: const <Widget>[
-                    SizedBox(height: 69, width: 10,)
+                  children: <Widget>[
+                    SizedBox(height: 69, width: 10,),
+                    Text(this.week.weekIndex == 0 ? "Нечетная" : "Четная")
                   ] + getDays(),
                 ),
               )
@@ -60,7 +62,7 @@ class _TimetableState extends State<Timetable> {
                             showGeneralDialog(
                                 context: context,
                                 pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-                                  return const MapModal();
+                                  return MapModal();
                                 });
                           },
                           child: const Icon(Icons.location_pin, color: Colors.grey)
@@ -71,14 +73,6 @@ class _TimetableState extends State<Timetable> {
                           },
                           child: const Icon(Icons.arrow_forward, color: Colors.grey)
                       ),
-                      /*FloatingActionButton(
-                          onPressed: () {},
-                          child: const Icon(Icons.add, color: Colors.grey)
-                      ),
-                      FloatingActionButton(
-                          onPressed: () {},
-                          child: const Icon(Icons.format_align_center, color: Colors.grey)
-                      )*/
                     ]
                 ),
               )

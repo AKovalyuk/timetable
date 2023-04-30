@@ -29,7 +29,7 @@ class _TimetableDayState extends State<TimetableDay> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(this.day.title),
+                Text('${DayStruct.daysNames[this.day.dayIndex]}'),
               ] + List.from(this.day.table.map((lesson) => Lesson(lessonStruct: lesson))),
             ),
           )
